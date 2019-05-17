@@ -1,0 +1,80 @@
+body{
+    padding-top: 100px;
+}
+a{
+
+    color: black;
+}
+/*a:hover{
+    text-decoration: none;
+    color: black;
+}*/
+.text-red{
+    color: #ef4130;
+}
+.p-0{
+    padding: 0;
+}
+.m-0{
+    margin: 0;
+}
+.mb-30{
+    margin-bottom: 30px;
+}
+.border{
+        border: 1px solid black;
+}
+.navbar-default{
+    background: #FFFFFF;
+}
+/*.navbar-default a{
+    display: inline-block;
+    background-color: ;
+}
+.navbar-default a:hover{
+    background: #EE6059;
+    border-color: #EE6059;
+    color: #fff;
+}*/
+.box{
+    padding: 0 20px;
+}
+.box h5{
+    text-align: center;
+    border-bottom: 1px dotted black;
+    margin-bottom: 25px;
+}
+.box a{
+    color: #ef4130;
+}
+.logo{
+    font-size: 25px;
+
+}
+.box-sign-up{
+    padding: 5px;
+    border: 1px solid #D5D5D5;
+}
+
+.left{
+  
+}
+.brand-logo{
+        border: 1px solid black;
+        padding: 15px 0px;
+        margin-bottom: 25px;
+        text-align: center;
+}
+.top20{
+        
+        border: 1px solid black;
+        border-top: 0px;
+}
+.top20 .box{
+    border: 1px solid black;
+    padding: 0px;
+}
+.right span{
+    font-size: 64px;
+    text-align: center;
+}

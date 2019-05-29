@@ -4,6 +4,10 @@
         <title>@yield('title','NEUBOJ')</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <!--***** Bootstrap CSS ******-->
         <link href="{{ asset('public/assets/css/bootstrap.css') }}" rel="stylesheet">
         <!--*********Custom CSS***********-->
@@ -23,9 +27,31 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
+                         <!-- Authentication Links -->
+                        @guest
+                        <li class="{{Request::is('/') ? 'active' : null}}"><a href="{{ route('login') }}">LOGIN</a></li>
+                         @if (Route::has('register'))
+                        <li class="{{Request::is('register') ? 'active' : null}}"><a href="{{ route('register') }}">REGISTER</a></li> 
+                         @endif
+                        @else
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
 
-                        <li class="{{Request::is('/') ? 'active' : null}}"><a href="{{route('index')}}">LOGIN</a></li>
-                        <li class="{{Request::is('register') ? 'active' : null}}"><a href="{{route('register')}}">REGISTER</a></li> 
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                         <li class="{{Request::is('contest') ? 'active' : null}}"><a href="{{route('contest')}}">CONTESTS</a></li> 
                         <li class="{{Request::is('categories') ? 'active' : null}}"><a href="{{route('categories')}}">PROBLEM</a></li> 
                         <li class="{{Request::is('') ? 'active' : null}}"><a href="#">RANK</a></li> 

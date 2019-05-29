@@ -30,3 +30,13 @@ Route::get('/register', function () {
 Route::get('/problems', function () {
     return view('problems');
 })->name('problems');
+
+Route::get('/password/reset', function () {
+    return view('passwords.reset');
+});
+
+
+
+Auth::routes(['verify'=> true]);
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
